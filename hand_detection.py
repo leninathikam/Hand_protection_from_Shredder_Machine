@@ -125,7 +125,7 @@ if __name__ == '__main__':
             
             #cv2.line(img=frame, pt1=(0, Line_Position2), pt2=(frame.shape[1], Line_Position2), color=(255, 0, 0), thickness=2, lineType=8, shift=0)
             
-            # Run image through tensorflow graph
+            # Run image through TensorFlow graph
             boxes, scores, classes = detector_utils.detect_objects(
                 frame, detection_graph, sess)
             

@@ -35,12 +35,12 @@ def load_inference_graph():
     print("> ====== Loading frozen graph into memory")
     detection_graph = tf.Graph()
     with detection_graph.as_default():
-        od_graph_def = tf.GraphDef()
-        with tf.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
+        od_graph_def = tf.compat.v1.GraphDef()
+        with tf.io.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
             serialized_graph = fid.read()
             od_graph_def.ParseFromString(serialized_graph)
             tf.import_graph_def(od_graph_def, name='')
-        sess = tf.Session(graph=detection_graph)
+        sess = tf.compat.v1.Session(graph=detection_graph)
     print(">  ====== Inference graph loaded.")
     return detection_graph, sess
 
@@ -51,7 +51,7 @@ def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, classes, im
     # The average width of a human hand (inches) http://www.theaveragebody.com/average_hand_size.php
     # added an inch since thumb is not included
     avg_width = 4.0
-    # To more easily differetiate distances and detected bboxes
+    # To more easily differeticate distances and detected bboxes
 
     global a,b
     hand_cnt=0

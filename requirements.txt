@@ -34,7 +34,6 @@ jsonschema
 Keras-Applications
 Keras-Preprocessing
 kiwisolver
-macaroonbakery
 Mako
 Markdown
 MarkupSafe
@@ -53,10 +52,10 @@ parso
 pbr
 pickleshare
 Pillow
-playsound
+playsound==1.2.2
 prometheus-client
 prompt-toolkit
-protobuf
+protobuf>=5.28.0
 pycparser
 Pygments
 pymacaroons
